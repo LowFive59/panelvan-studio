@@ -352,8 +352,57 @@ const [selectedRegionId, setSelectedRegionId] = useState<string | null>(null)
   role="button"
   aria-label="Arka Kapılar"
 >
-  <polygon points="49,46 382,46 393,843 48,846" />
-  <polygon points="1267,45 1594,45 1602,846 1258,845" />
+{/* SOL ARKA KAPI — üst panel */}
+<path
+  d="
+    M 111 225
+    Q 111 207 129 207
+    L 338 207
+    Q 359 207 359 228
+    L 359 421
+    Q 359 449 331 449
+    L 139 449
+    Q 111 449 111 421
+    Z
+  "
+/>
+
+{/* SOL ARKA KAPI — alt panel */}
+<path
+  d="
+    M 80 515
+    L 364 515
+    L 364 788
+    L 80 788
+    Z
+  "
+/>
+
+{/* SAĞ ARKA KAPI — üst panel */}
+<path
+  d="
+    M 1290 228
+    Q 1290 207 1311 207
+    L 1521 207
+    Q 1538 207 1538 225
+    L 1538 421
+    Q 1538 449 1510 449
+    L 1318 449
+    Q 1290 449 1290 421
+    Z
+  "
+/>
+
+{/* SAĞ ARKA KAPI — alt panel */}
+<path
+  d="
+    M 1284 515
+    L 1568 515
+    L 1568 788
+    L 1284 788
+    Z
+  "
+/>
 </g>
   </svg>
 </div>
