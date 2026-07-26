@@ -325,11 +325,30 @@ function App() {
 
           <div className="viewer-card">
             {showRealDucato ? (
-              <img
-                className="vehicle-image"
-                src="/vehicles/fiat/ducato/13m3/base.webp"
-                alt="FIAT Ducato 13 m³ arka iç görünüm"
-              />
+              <div className="vehicle-stage">
+  <img
+    className="vehicle-image"
+    src="/vehicles/fiat/ducato/13m3/base.webp"
+    alt="FIAT Ducato 13 m³ arka iç görünüm"
+  />
+
+  <svg
+    className="vehicle-overlay"
+    viewBox="0 0 1648 928"
+    preserveAspectRatio="xMidYMid meet"
+    aria-label="Araç kaplama bölgeleri"
+  >
+    <g className="test-rear-doors">
+      <polygon
+        points="49,46 382,46 393,843 48,846"
+      />
+
+      <polygon
+        points="1267,45 1594,45 1602,846 1258,845"
+      />
+    </g>
+  </svg>
+</div>
             ) : (
               <div className="viewer-placeholder">
                 <div className="van-icon" aria-hidden="true">
