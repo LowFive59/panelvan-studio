@@ -191,6 +191,8 @@ function App() {
   )
   const [selectedMaterialId, setSelectedMaterialId] =
     useState('marine-plywood')
+    const [hoveredRegionId, setHoveredRegionId] = useState<string | null>(null)
+const [selectedRegionId, setSelectedRegionId] = useState<string | null>(null)
 
   const selectedVehicle = vehicles
     .flatMap((brand) =>
@@ -338,15 +340,21 @@ function App() {
     preserveAspectRatio="xMidYMid meet"
     aria-label="Araç kaplama bölgeleri"
   >
-    <g className="test-rear-doors">
-      <polygon
-        points="49,46 382,46 393,843 48,846"
-      />
-
-      <polygon
-        points="1267,45 1594,45 1602,846 1258,845"
-      />
-    </g>
+    <g
+  className={`rear-doors-region ${
+    hoveredRegionId === 'rearDoors' ? 'is-hovered' : ''
+  } ${
+    selectedRegionId === 'rearDoors' ? 'is-selected' : ''
+  }`}
+  onMouseEnter={() => setHoveredRegionId('rearDoors')}
+  onMouseLeave={() => setHoveredRegionId(null)}
+  onClick={() => setSelectedRegionId('rearDoors')}
+  role="button"
+  aria-label="Arka Kapılar"
+>
+  <polygon points="49,46 382,46 393,843 48,846" />
+  <polygon points="1267,45 1594,45 1602,846 1258,845" />
+</g>
   </svg>
 </div>
             ) : (
