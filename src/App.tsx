@@ -217,6 +217,9 @@ function App() {
     setOpenModelId((current) => (current === modelId ? null : modelId))
   }
 
+  const showRealDucato =
+    selectedVehicleId === 'fiat-ducato-13m3'
+
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -321,15 +324,23 @@ function App() {
           </div>
 
           <div className="viewer-card">
-            <div className="viewer-placeholder">
-              <div className="van-icon" aria-hidden="true">
-                <div className="van-body" />
-                <div className="van-wheel left" />
-                <div className="van-wheel right" />
-              </div>
+            {showRealDucato ? (
+              <img
+                className="vehicle-image"
+                src="/vehicles/fiat/ducato/13m3/base.webp"
+                alt="FIAT Ducato 13 m³ arka iç görünüm"
+              />
+            ) : (
+              <div className="viewer-placeholder">
+                <div className="van-icon" aria-hidden="true">
+                  <div className="van-body" />
+                  <div className="van-wheel left" />
+                  <div className="van-wheel right" />
+                </div>
 
-              <p>Gerçek araç görseli bu alana yerleştirilecek.</p>
-            </div>
+                <p>Bu araç için gerçek görsel henüz eklenmedi.</p>
+              </div>
+            )}
           </div>
         </section>
 
