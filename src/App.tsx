@@ -193,6 +193,7 @@ function App() {
     useState('marine-plywood')
     const [hoveredRegionId, setHoveredRegionId] = useState<string | null>(null)
 const [selectedRegionId, setSelectedRegionId] = useState<string | null>(null)
+const [rearDoorsMaterialId, setRearDoorsMaterialId] = useState<string | null>(null)
 
   const selectedVehicle = vehicles
     .flatMap((brand) =>
@@ -340,69 +341,165 @@ const [selectedRegionId, setSelectedRegionId] = useState<string | null>(null)
     preserveAspectRatio="xMidYMid meet"
     aria-label="Araç kaplama bölgeleri"
   >
-    <g
-  className={`rear-doors-region ${
-    hoveredRegionId === 'rearDoors' ? 'is-hovered' : ''
-  } ${
-    selectedRegionId === 'rearDoors' ? 'is-selected' : ''
-  }`}
+    <defs>
+  <pattern
+    id="marine-plywood-pattern"
+    patternUnits="userSpaceOnUse"
+    width="420"
+    height="280"
+  >
+    <image
+      href="/materials/marine-plywood/texture.png"
+      x="0"
+      y="0"
+      width="420"
+      height="280"
+      preserveAspectRatio="xMidYMid slice"
+    />
+  </pattern>
+</defs>
+
+    {/* ARKA KAPILARA UYGULANMIŞ MALZEME */}
+<g
+  className="rear-doors-material"
+  fill={
+    rearDoorsMaterialId === 'marine-plywood'
+      ? 'url(#marine-plywood-pattern)'
+      : 'none'
+  }
+  stroke="none"
+  pointerEvents="none"
+>
+  {/* SOL ARKA KAPI — üst panel */}
+  <path
+    d="
+      M 111 225
+      Q 111 207 129 207
+      L 338 207
+      Q 359 207 359 228
+      L 359 421
+      Q 359 449 331 449
+      L 139 449
+      Q 111 449 111 421
+      Z
+    "
+  />
+
+  {/* SOL ARKA KAPI — alt panel */}
+  <path
+    d="
+      M 80 515
+      L 364 515
+      L 364 788
+      L 80 788
+      Z
+    "
+  />
+
+  {/* SAĞ ARKA KAPI — üst panel */}
+  <path
+    d="
+      M 1290 228
+      Q 1290 207 1311 207
+      L 1521 207
+      Q 1538 207 1538 225
+      L 1538 421
+      Q 1538 449 1510 449
+      L 1318 449
+      Q 1290 449 1290 421
+      Z
+    "
+  />
+
+  {/* SAĞ ARKA KAPI — alt panel */}
+  <path
+    d="
+      M 1284 515
+      L 1568 515
+      L 1568 788
+      L 1284 788
+      Z
+    "
+  />
+</g>
+
+{/* ARKA KAPILAR ETKİLEŞİM KATMANI */}
+<g
+  className="rear-doors-hit-area"
+  fill={
+    hoveredRegionId === 'rearDoors'
+      ? 'rgba(234, 91, 12, 0.18)'
+      : 'transparent'
+  }
+  stroke={
+    hoveredRegionId === 'rearDoors'
+      ? '#ea5b0c'
+      : 'transparent'
+  }
+  strokeWidth="5"
+  strokeLinejoin="round"
+  pointerEvents="all"
+  style={{ cursor: 'pointer' }}
   onMouseEnter={() => setHoveredRegionId('rearDoors')}
   onMouseLeave={() => setHoveredRegionId(null)}
-  onClick={() => setSelectedRegionId('rearDoors')}
+  onClick={() => {
+    setSelectedRegionId('rearDoors')
+    setRearDoorsMaterialId(selectedMaterialId)
+  }}
   role="button"
   aria-label="Arka Kapılar"
 >
-{/* SOL ARKA KAPI — üst panel */}
-<path
-  d="
-    M 111 225
-    Q 111 207 129 207
-    L 338 207
-    Q 359 207 359 228
-    L 359 421
-    Q 359 449 331 449
-    L 139 449
-    Q 111 449 111 421
-    Z
-  "
-/>
+  {/* SOL ARKA KAPI — üst panel */}
+  <path
+    d="
+      M 111 225
+      Q 111 207 129 207
+      L 338 207
+      Q 359 207 359 228
+      L 359 421
+      Q 359 449 331 449
+      L 139 449
+      Q 111 449 111 421
+      Z
+    "
+  />
 
-{/* SOL ARKA KAPI — alt panel */}
-<path
-  d="
-    M 80 515
-    L 364 515
-    L 364 788
-    L 80 788
-    Z
-  "
-/>
+  {/* SOL ARKA KAPI — alt panel */}
+  <path
+    d="
+      M 80 515
+      L 364 515
+      L 364 788
+      L 80 788
+      Z
+    "
+  />
 
-{/* SAĞ ARKA KAPI — üst panel */}
-<path
-  d="
-    M 1290 228
-    Q 1290 207 1311 207
-    L 1521 207
-    Q 1538 207 1538 225
-    L 1538 421
-    Q 1538 449 1510 449
-    L 1318 449
-    Q 1290 449 1290 421
-    Z
-  "
-/>
+  {/* SAĞ ARKA KAPI — üst panel */}
+  <path
+    d="
+      M 1290 228
+      Q 1290 207 1311 207
+      L 1521 207
+      Q 1538 207 1538 225
+      L 1538 421
+      Q 1538 449 1510 449
+      L 1318 449
+      Q 1290 449 1290 421
+      Z
+    "
+  />
 
-{/* SAĞ ARKA KAPI — alt panel */}
-<path
-  d="
-    M 1284 515
-    L 1568 515
-    L 1568 788
-    L 1284 788
-    Z
-  "
-/>
+  {/* SAĞ ARKA KAPI — alt panel */}
+  <path
+    d="
+      M 1284 515
+      L 1568 515
+      L 1568 788
+      L 1284 788
+      Z
+    "
+  />
 </g>
   </svg>
 </div>
