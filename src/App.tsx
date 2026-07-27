@@ -504,11 +504,20 @@ const [rearDoorsMaterialId, setRearDoorsMaterialId] = useState<string | null>(nu
 {/* TABAN */}
 <path
  d="
-  M 615 585
-  L 1033 585
+  M 615 685
+  L 1033 685
 
-  L 1060 785
-  L 588 785
+  L 1040 735
+  L 1060 765
+
+  L 1120 765
+  L 1120 805
+
+  L 528 805
+  L 528 765
+
+  L 588 765
+  L 608 735
 
   Z
 "
