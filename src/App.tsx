@@ -501,6 +501,84 @@ const [rearDoorsMaterialId, setRearDoorsMaterialId] = useState<string | null>(nu
     "
   />
 </g>
+{/* TABAN */}
+<path
+ d="
+  M 615 585
+  L 1033 585
+
+  L 1060 785
+  L 588 785
+
+  Z
+"
+  fill={
+    hoveredRegionId === 'floor'
+      ? 'rgba(234, 91, 12, 0.38)'
+      : 'transparent'
+  }
+  stroke={
+    hoveredRegionId === 'floor'
+      ? '#ea5b0c'
+      : 'transparent'
+  }
+  strokeWidth="5"
+  strokeLinejoin="round"
+  pointerEvents="all"
+  style={{ cursor: 'pointer' }}
+  onMouseEnter={() => setHoveredRegionId('floor')}
+  onMouseLeave={() => setHoveredRegionId(null)}
+  onClick={() => setSelectedRegionId('floor')}
+/>
+ {/* ARA BÖLME ETKİLEŞİM ALANI */}
+<path
+  d="
+    M 639 206
+    L 985 206
+
+    L 1021 249
+    L 1056 649
+
+    L 1045 685
+    L 603 685
+
+    L 585 639
+    L 596 249
+
+    Z
+
+    M 740 310
+    Q 740 300 750 300
+    L 898 300
+    Q 908 300 908 310
+    L 908 390
+    Q 908 400 898 400
+    L 750 400
+    Q 740 400 740 390
+    Z
+  "
+  fillRule="evenodd"
+  clipRule="evenodd"
+  fill={
+    hoveredRegionId === 'partition'
+      ? 'rgba(234, 91, 12, 0.38)'
+      : 'transparent'
+  }
+  stroke={
+    hoveredRegionId === 'partition'
+      ? '#ea5b0c'
+      : 'transparent'
+  }
+  strokeWidth="5"
+  strokeLinejoin="round"
+  pointerEvents="all"
+  style={{ cursor: 'pointer' }}
+  onMouseEnter={() => setHoveredRegionId('partition')}
+  onMouseLeave={() => setHoveredRegionId(null)}
+  onClick={() => setSelectedRegionId('partition')}
+  role="button"
+  aria-label="Ara Bölme"
+/>
   </svg>
 </div>
             ) : (
