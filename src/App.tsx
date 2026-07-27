@@ -588,6 +588,92 @@ const [rearDoorsMaterialId, setRearDoorsMaterialId] = useState<string | null>(nu
   role="button"
   aria-label="Ara Bölme"
 />
+{/* ÇAMURLUKLAR ETKİLEŞİM ALANI */}
+<g
+  fill={
+    hoveredRegionId === 'wheelArches'
+      ? 'rgba(234, 91, 12, 0.38)'
+      : 'transparent'
+  }
+  stroke={
+    hoveredRegionId === 'wheelArches'
+      ? '#ea5b0c'
+      : 'transparent'
+  }
+  strokeWidth="5"
+  strokeLinejoin="round"
+  pointerEvents="all"
+  style={{ cursor: 'pointer' }}
+  onMouseEnter={() => setHoveredRegionId('wheelArches')}
+  onMouseLeave={() => setHoveredRegionId(null)}
+  onClick={() => setSelectedRegionId('wheelArches')}
+  role="button"
+  aria-label="Çamurluklar"
+>
+  {/* SOL ÇAMURLUK KUTUSU */}
+  <path
+    d="
+      M 505 630
+      L 600 630
+      L 600 750
+      L 575 780
+      L 505 780
+      Z
+    "
+  />
+
+  <path
+    d="
+      M 505 630
+      L 600 630
+      L 575 670
+      L 505 670
+      Z
+    "
+  />
+
+  <path
+    d="
+      M 575 670
+      L 600 630
+      L 600 750
+      L 575 780
+      Z
+    "
+  />
+
+  {/* SAĞ ÇAMURLUK KUTUSU */}
+  <path
+    d="
+      M 1048 630
+      L 1143 630
+      L 1143 780
+      L 1073 780
+      L 1048 750
+      Z
+    "
+  />
+
+  <path
+    d="
+      M 1048 630
+      L 1143 630
+      L 1143 670
+      L 1073 670
+      Z
+    "
+  />
+
+  <path
+    d="
+      M 1048 630
+      L 1073 670
+      L 1073 780
+      L 1048 750
+      Z
+    "
+  />
+</g>
   </svg>
 </div>
             ) : (
